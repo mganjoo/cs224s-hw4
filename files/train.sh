@@ -8,8 +8,8 @@
 # CS224S students - modify this file to suit your implementation
 
 # output of openSMILE is already in LIBLINEAR/LIBSVM data file format!
-# format the training data
-python classifier/format_train_data.py
+# format the data
+python classifier/format_data.py
 
 # train the classifier
-./classifier/train feats/train_formatted.lsvm emotion.model
+./classifier/train -s 6 -c 0.09 feats/train_formatted.lsvm emotion.model
