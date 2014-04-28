@@ -6,6 +6,7 @@
 
 from sklearn import preprocessing
 import numpy as np
+import scipy.io
 
 # open the feature file
 f_handle = open('feats/train.lsvm', 'r')
@@ -27,6 +28,7 @@ for i, line in enumerate(lines):
 scaler = preprocessing.StandardScaler().fit(X)
 
 X_trans = scaler.transform(X)
+Y = np.zeros(rows)
 
 for i, line in enumerate(lines):
     if i <= 105:  # anger
@@ -39,11 +41,13 @@ for i, line in enumerate(lines):
         label = 4
     else:
         label = 5
+    Y[i] = label
     f.write(str(label) + " " +
-            " ".join([str(j+1) + ":" +
-                      str(x) for j, x in enumerate(X_trans[i])]) + "\n")
-
+            " ".join([str(j+1) + ":" + str(x)
+                      for j, x in enumerate(X_trans[i])]) + "\n")
 f.close()
+scipy.io.savemat('feats/train.mat', {'X': np.transpose(X_trans), 'Y': Y},
+                 oned_as='row')
 
 # test data
 
@@ -65,6 +69,7 @@ for i, line in enumerate(lines):
         X[i][j] = float(x.split(":")[1])
 
 X_trans = scaler.transform(X)
+Y = np.zeros(rows)
 
 for i, line in enumerate(lines):
     if i <= 35:  # anger
@@ -77,8 +82,10 @@ for i, line in enumerate(lines):
         label = 4
     else:
         label = 5
+    Y[i] = label
     f.write(str(label) + " " +
             " ".join([str(j+1) + ":" +
                       str(x) for j, x in enumerate(X_trans[i])]) + "\n")
-
 f.close()
+scipy.io.savemat('feats/test.mat', {'X': np.transpose(X_trans), 'Y': Y},
+                 oned_as='row')
