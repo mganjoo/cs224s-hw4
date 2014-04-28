@@ -1,0 +1,8 @@
+L1-regularized logistic regression
+61.82%
+
+Softmax NN
+60.61%
+
+Shortlisted feature softmax NN
+57.57%
