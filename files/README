@@ -1,0 +1,12 @@
+Fill out this README with your group names and information on how to run
+your code (and anything else you think is important to the TAs). Example:
+
+--------------------------------------------------------------------------------
+
+amaas - Andrew Maas
+pengqi - Peng Qi
+nayaks - Sushobhan Nayak
+liuf - Frank Liu
+
+Run the code by first extracting the features using extract_feat.sh, then
+<etc...>.
