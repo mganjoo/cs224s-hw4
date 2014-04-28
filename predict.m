@@ -23,13 +23,7 @@ for actual = 1:numCategories
 end
 
 truePos = diag(confusion); % true positives, column vector
-results.confusion = confusion;
-results.accuracy = sum(truePos) / numFeats;
-t = truePos ./ sum(confusion, 2);
-results.avgPrecision = mean(t(isfinite(t), :));
-t = truePos' ./ sum(confusion, 1);
-results.avgRecall = mean(t(:, isfinite(t)));
+accuracy = sum(truePos) / numFeats;
 
-accstr = sprintf('Accuracy = %f%% (%d/%d)', results.accuracy * 100, sum(truePos), numFeats);
-disp(accstr);
+disp(sprintf('Accuracy = %f%% (%d/%d)', accuracy * 100, sum(truePos), numFeats));
 displayConfusionMatrix(confusion, 5);
