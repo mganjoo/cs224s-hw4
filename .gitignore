@@ -1,4 +1,13 @@
 .ropeproject/
 feats/*.mat
 *.mat
-
+*.aux
+*.out
+*.fdb_latexmk
+*.bbl
+*.bcf
+*.blg
+*.fls
+*.synctex.gz
+*.synctex.gz(busy)
+*.run.xml
