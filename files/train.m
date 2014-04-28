@@ -7,10 +7,10 @@ load feats/train.mat;
 numCategories = 5;  % 5 emotion categories
 
 % Parameters
-trainParams.lambda = 1E-3;         % Regularization parameter
+trainParams.lambda = 0.1;          % Regularization parameter
 trainParams.maxIter = 500;         % Maximum number of iterations
-trainParams.f = @tanh;             % function to use in the neural network activations
-trainParams.f_prime = @tanh_prime; % derivative of f
+trainParams.f = @tanh;             % Function to use in the neural network activations
+trainParams.f_prime = @tanh_prime; % Derivative of f
 
 % Initialize actual weights
 disp('Initializing parameters');
