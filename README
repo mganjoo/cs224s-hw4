@@ -2,7 +2,28 @@ mganjoo - Milind Ganjoo
 pancoast - Stephanie Lynne Pancoast
 sebschu - Sebastian Schuster
 
-TODO: Add instructions.
+# Instructions
 
-Run the code by first extracting the features using extract_feat.sh, then
-<etc...>.
+1. Extract features (for both train and test)
+
+```sh
+bash extract_feat.sh 1
+bash extract_feat.sh 2
+```
+
+2. Train the model. You can use train.sh to train using LIBLINEAR, or trainm.sh
+to train using the softmax NN (requires MATLAB and the `module` command, so run
+on corn machines).
+
+```sh
+bash train.sh
+bash trainm.sh
+```
+
+3. Predict test set labels using either predict.sh (LIBLINEAR) or predictm.sh
+(softmax NN).
+
+```sh
+bash predict.sh
+bash predictm.sh
+```
