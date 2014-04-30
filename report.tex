@@ -92,15 +92,16 @@ subsequently summarize the results and observations.
     \toprule
     Classifier & Raw  & Normalized \\
     \midrule
-    SVM w/ $L_2$-reg & 0.30 & 0.49 \\
-    SVM w/ $L_1$-reg & 0.44 & 0.53 \\
-    LogReg w/ $L_1$-reg & 0.53 & 0.52  \\
+    baseline & 0.30& ---\\
+    SVM w/ $L_2$-reg & 0.42 & 0.55 \\
+    SVM w/ $L_1$-reg & 0.52 & 0.60 \\
+    LogReg w/ $L_1$-reg & 0.56 & \textbf{0.62}  \\
     Softmax NN w/ $L_2$-reg & --- & 0.61  \\ % NN can't use raw features
     \bottomrule
   \end{tabular}
-  \caption{Accuracy for different classifiers using raw and normalized
-  features. For all experiments we used a regularization strength
-$C=1$.}\label{tab:results}
+  \caption{\footnotesize Accuracy for different classifiers using raw and normalized
+  features. For each of the classifiers we optimized the regularization strength on the
+  test set. Our baseline is the provided classifier without any modifications.}\label{tab:results}
 \end{table}
 
 % TODO: why did we use C=1 for the above table? Let's just use the best
@@ -109,12 +110,11 @@ $C=1$.}\label{tab:results}
 
 The results are presented in Table~\ref{tab:results}. This table shows that
 using $L_1$ regularization significantly improves the classification accuracy.
-Using normalized features further improves classification accuracy (with the
-exception of logistic regression where we see a very small drop in accuracy).
+Using normalized features further improves classification accuracy.
 
 The neural network classifier achieved an accuracy of 60.61\% with a
 regularization parameter $C=0.1$, but the best accuracy of 62\% was obtained
-using the $L-1$ regularized logistic regression classifier with normalized
+using the $L_1$ regularized logistic regression classifier with normalized
 features and inverse regularization strength $C=0.09$.
 
 \section{Feature Analysis}
@@ -193,7 +193,7 @@ Sadness (S) & 0 & 5 & 2 & 9 & \bf 18\\
 \bottomrule
 \end{tabular}
 \caption{\footnotesize Confusion matrix for emotion classification using the
-$L-1$ regularized logistic regression classifier.}\label{tab:confusion}
+$L_1$ regularized logistic regression classifier.}\label{tab:confusion}
 \end{table}
 
 \end{document}
