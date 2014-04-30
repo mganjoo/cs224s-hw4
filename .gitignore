@@ -11,3 +11,4 @@ feats/*.mat
 *.synctex.gz
 *.synctex.gz(busy)
 *.run.xml
+report.log
